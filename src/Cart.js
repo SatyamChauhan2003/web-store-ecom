@@ -1,21 +1,48 @@
 import styled from "styled-components";
 import { useCartContext } from "./context/cart_context";
+import CartItem from "./components/CartItem";
+import { NavLink } from "react-router-dom";
+import FormatPrice from "./Helpers/FormatPrice";
+import { Button } from "./styles/Button";
 
 const Cart = () => {
-  const { cart } = useCartContext();
+  const { cart, clearCart} = useCartContext();
   // console.log(cart)
   return (
     <Wrapper>
-      <div className="container">
-        <div className="cart_heading grid grid-five-column">
-          <p>Item</p>
-          <p className="cart_hide">Price</p>
-          <p>Quantity</p>
-          <p className="cart-hide">Subtotal</p>
-          <p>Remove</p>
+      {cart.length <= 0 ? (
+        <h2>Cart is Empty</h2>
+      ) : (
+        <div className="container">
+          <div className="cart_heading grid grid-five-column">
+            <p>Item</p>
+            <p className="cart-hide">Price</p>
+            <p>Quantity</p>
+            <p className="cart-hide">Subtotal</p>
+            <p>Remove</p>
+          </div>
+          <hr />
+          <div className="cart-item">
+            {cart.map((curElem) => {
+              return <CartItem key={curElem.id} {...curElem} />;
+            })}
+          </div>
+          <hr />
+          <div className="cart-two-button">
+            <NavLink to="/products">
+              <Button> continue Shopping </Button>
+            </NavLink>
+            <Button className="btn btn-clear" onClick={clearCart}>
+              clear cart
+            </Button>
+          </div>
+  
+          {/* order total_amount */}
+          
+
+
         </div>
-        <hr/>
-      </div>
+      )}
     </Wrapper>
   );
 };
@@ -194,5 +221,4 @@ const Wrapper = styled.section`
     }
   }
 `;
-
 export default Cart;
