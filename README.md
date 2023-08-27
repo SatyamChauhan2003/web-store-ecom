@@ -1,7 +1,10 @@
 copyright 2023 Satyam Chauhan
+
 LinkedIn = (https://www.linkedin.com/in/satyam-chauhan-15247b207/)
 
 Instagram = (https://www.instagram.com/satyamchauhan.1/)
+
+Github = (https://github.com/SatyamChauhan2003)
 
 
 
