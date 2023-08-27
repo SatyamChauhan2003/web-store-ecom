@@ -1,3 +1,11 @@
+copyright 2023 Satyam Chauhan
+LinkedIn = (https://www.linkedin.com/in/satyam-chauhan-15247b207/)
+
+Instagram = (https://www.instagram.com/satyamchauhan.1/)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
