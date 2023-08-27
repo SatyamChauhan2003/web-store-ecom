@@ -5,7 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../context/cart_context";
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem, setDecrease, setIncrement } = useCartContext();
+  const { removeItem, setDecrease, setIncrease } = useCartContext();
   
 
   // const setDecrease = () => {
@@ -45,7 +45,7 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       <CartAmountToggle
         amount={amount}
         setDecrease={() => setDecrease(id)}
-        setIncrease={() => setIncrement(id)}
+        setIncrease={() => setIncrease(id)}
       />
 
            <div className="cart-hide">

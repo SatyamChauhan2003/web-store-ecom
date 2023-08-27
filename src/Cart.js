@@ -6,8 +6,8 @@ import FormatPrice from "./Helpers/FormatPrice";
 import { Button } from "./styles/Button";
 
 const Cart = () => {
-  const { cart, clearCart} = useCartContext();
-  // console.log(cart)
+  const { cart, clearCart,total_price, shipping_fee} = useCartContext();
+  
   return (
     <Wrapper>
       {cart.length <= 0 ? (
@@ -38,7 +38,29 @@ const Cart = () => {
           </div>
   
           {/* order total_amount */}
-          
+          <div className="order-total--amount">
+          <div className="order-total--subdata">
+            <div>
+              <p>subtotal:</p>
+              <p>
+                <FormatPrice price={total_price} />
+              </p>
+            </div>
+            <div>
+              <p>shipping fee:</p>
+              <p>
+                <FormatPrice price={shipping_fee} />
+              </p>
+            </div>
+            <hr />
+            <div>
+              <p>order total:</p>
+              <p>
+                <FormatPrice price={shipping_fee + total_price} />
+              </p>
+            </div>
+          </div>
+        </div>
 
 
         </div>
