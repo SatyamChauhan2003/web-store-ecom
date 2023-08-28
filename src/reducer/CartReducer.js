@@ -68,14 +68,14 @@ const cartReducer = (state, action) => {
   if (action.type === "SET_INCREMENT") {
     let updatedProduct = state.cart.map((item) => {
       if (item.id === action.payload) {
-        let decAmount = item.amount + 1;
-        if (decAmount >= item.max) {
-          decAmount = item.max;
+        let IncAmount = item.amount + 1;
+        if (IncAmount >= item.max) {
+          IncAmount = item.max;
         }
 
         return {
           ...item,
-          amount: decAmount,
+          amount: IncAmount,
         };
       } else {
         return item;
@@ -104,30 +104,51 @@ const cartReducer = (state, action) => {
       cart: [],
     };
   }
-  if (action.type === "CART_TOTAL_ITEM") {
-    let updatedValue = state.cart.reduce((acc, curr) => {
-      let { amount } = curr;
-      acc += amount;
-      return acc;
-    }, 0);
+  // if (action.type === "CART_TOTAL_ITEM") {
+  //   let updatedValue = state.cart.reduce((acc, curr) => {
+  //     let { amount } = curr;
+  //     acc += amount;
+  //     return acc;
+  //   }, 0);
+
+  //   return {
+  //     ...state,
+  //     total_item: updatedValue,
+  //   };
+  // }
+
+  // if (action.type === "CART_TOTAL_PRICE") {
+  //   let total_price = state.cart.reduce((initialVal, curElem) => {
+  //     let { price, amount } = curElem;
+
+  //     initialVal = initialVal + price * amount;
+
+  //     return initialVal;
+  //   }, 0);
+
+  //   return {
+  //     ...state,
+  //     total_price,
+  //   };
+  // }
+
+  if (action.type === "CART_ITEM_PRICE_TOTAL") {
+    let { total_item, total_price } = state.cart.reduce(
+      (acc, curr) => {
+        let { price, amount } = curr;
+        acc.total_item += amount;
+        acc.total_price += price * amount;
+        return acc;
+      },
+      {
+        total_item: 0,
+        total_price: 0,
+      }
+    );
 
     return {
       ...state,
-      total_item: updatedValue,
-    };
-  }
-
-  if (action.type === "CART_TOTAL_PRICE") {
-    let total_price = state.cart.reduce((initialVal, curElem) => {
-      let { price, amount } = curElem;
-
-      initialVal = initialVal + price * amount;
-
-      return initialVal;
-    }, 0);
-
-    return {
-      ...state,
+      total_item,
       total_price,
     };
   }
