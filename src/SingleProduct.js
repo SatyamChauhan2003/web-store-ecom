@@ -20,7 +20,7 @@ const SingleProduct = () => {
   const { id } = useParams();
 
   const {
-    id: alias,
+    
     name,
     company,
     price,
@@ -33,7 +33,8 @@ const SingleProduct = () => {
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ ]);
 
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
