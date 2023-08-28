@@ -22,7 +22,6 @@ const Footer = () => {
             </div>
           </div>
         </section>
-      
 
         <footer>
           <div className="container grid grid-four-column">
@@ -45,16 +44,10 @@ const Footer = () => {
                   <FaDiscord className="icons" />
                 </div>
                 <div>
-                <a href="https://www.instagram.com/satyamchauhan.1/?next=%2F" target="_blank">
                   <FaInstagram className="icons" />
-                  </a>
                 </div>
                 <div>
-                  <a
-                    href="#"
-                    target="_blank">
-                    <FaYoutube className="icons" />
-                  </a>
+                  <FaYoutube className="icons" />
                 </div>
               </div>
             </div>
@@ -67,9 +60,7 @@ const Footer = () => {
           <div className="footer-bottom--section">
             <hr />
             <div className="container grid grid-two-column ">
-              <p>
-                @{new Date().getFullYear()} Shopsify. All Rights Reserved
-              </p>
+              <p>@{new Date().getFullYear()} Shopsify. All Rights Reserved</p>
               <div>
                 <p>PRIVACY POLICY</p>
                 <p>TERMS & CONDITIONS</p>
